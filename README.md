@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/header.svg" alt="Shubham Mittal — Distributed Systems & AI Engineer" width="100%" />
+  <img src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/assets/header.svg" alt="Shubham Mittal — Distributed Systems & AI Engineer" width="100%" />
 </div>
 
 <br/>
@@ -33,7 +33,7 @@
 <br/>
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" />
+  <img src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/assets/divider.svg" width="100%" />
 </p>
 
 ## ⚡ Executive Summary
@@ -49,13 +49,13 @@ My technical work converges at the intersection of **high-throughput distributed
 <br/>
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" />
+  <img src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/assets/divider.svg" width="100%" />
 </p>
 
 ## 🎯 Competitive Programming & Algorithmic Milestones
 
 <div align="center">
-  <img src="assets/cp_card.svg" alt="Competitive Programming Credentials" width="100%" />
+  <img src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/assets/cp_card.svg" alt="Competitive Programming Credentials" width="100%" />
 </div>
 
 <br/>
@@ -74,7 +74,7 @@ My technical work converges at the intersection of **high-throughput distributed
 <br/>
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" />
+  <img src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/assets/divider.svg" width="100%" />
 </p>
 
 ## 🛠️ Technical Arsenal
@@ -128,7 +128,7 @@ My technical work converges at the intersection of **high-throughput distributed
 <br/>
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" />
+  <img src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/assets/divider.svg" width="100%" />
 </p>
 
 ## 🚀 Featured Engineering Projects
@@ -212,7 +212,7 @@ My technical work converges at the intersection of **high-throughput distributed
 <br/>
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" />
+  <img src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/assets/divider.svg" width="100%" />
 </p>
 
 ## 📊 GitHub Analytics & Repository Metrics
@@ -235,7 +235,7 @@ My technical work converges at the intersection of **high-throughput distributed
 <br/>
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" />
+  <img src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/assets/divider.svg" width="100%" />
 </p>
 
 ## 🐍 Contribution Activity & Snake Animation
@@ -251,7 +251,7 @@ My technical work converges at the intersection of **high-throughput distributed
 <br/>
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" />
+  <img src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/assets/divider.svg" width="100%" />
 </p>
 
 ## 💼 Leadership & Community Engagements
@@ -265,7 +265,7 @@ My technical work converges at the intersection of **high-throughput distributed
 <br/>
 
 <p align="center">
-  <img src="assets/divider.svg" width="100%" />
+  <img src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/assets/divider.svg" width="100%" />
 </p>
 
 ## 📬 Connect & Collaborate
