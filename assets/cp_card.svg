@@ -1,0 +1,89 @@
+<svg width="100%" height="240" viewBox="0 0 920 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cpBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080B14" />
+      <stop offset="100%" stop-color="#04060A" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111827" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0B0F19" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="cyanLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#818CF8" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .cp-title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 15px; font-weight: 700; fill: #F8FAFC; }
+    .cp-val { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 26px; font-weight: 800; }
+    .cp-sub { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; fill: #94A3B8; }
+    .mono-sm { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 11px; fill: #64748B; }
+  </style>
+
+  <!-- Container -->
+  <rect x="2" y="2" width="916" height="236" rx="14" fill="url(#cpBg)" stroke="#1E293B" stroke-width="1.5" />
+
+  <!-- Section Header -->
+  <g transform="translate(30, 32)">
+    <rect x="0" y="0" width="4" height="18" rx="2" fill="url(#cyanLine)" />
+    <text x="14" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#38BDF8" letter-spacing="1">COMPETITIVE PROGRAMMING &amp; PROBLEM SOLVING CREDENTIALS</text>
+    <text x="860" y="14" class="mono-sm" text-anchor="end">2000+ PROBLEMS SOLVED</text>
+  </g>
+
+  <!-- Metric 1: LeetCode Knight -->
+  <g transform="translate(30, 68)">
+    <rect x="0" y="0" width="200" height="142" rx="10" fill="url(#cardGrad)" stroke="#1E293B" stroke-width="1" />
+    <rect x="16" y="16" width="36" height="20" rx="4" fill="#1E293B" />
+    <text x="34" y="30" fill="#F59E0B" font-size="11" font-weight="700" font-family="monospace" text-anchor="middle">LC</text>
+    <text x="60" y="31" class="cp-title">LeetCode</text>
+    
+    <text x="16" y="78" class="cp-val" fill="#FBBF24">1967</text>
+    <text x="86" y="78" fill="#F59E0B" font-size="13" font-weight="700" font-family="monospace">KNIGHT</text>
+    
+    <text x="16" y="105" class="cp-sub">Top 3.05% Globally</text>
+    <text x="16" y="125" class="mono-sm">638+ Solved • Handle: FRshubham</text>
+  </g>
+
+  <!-- Metric 2: Codeforces Expert -->
+  <g transform="translate(250, 68)">
+    <rect x="0" y="0" width="200" height="142" rx="10" fill="url(#cardGrad)" stroke="#1E293B" stroke-width="1" />
+    <rect x="16" y="16" width="36" height="20" rx="4" fill="#1E293B" />
+    <text x="34" y="30" fill="#A855F7" font-size="11" font-weight="700" font-family="monospace" text-anchor="middle">CF</text>
+    <text x="60" y="31" class="cp-title">Codeforces</text>
+    
+    <text x="16" y="78" class="cp-val" fill="#A855F7">1634</text>
+    <text x="86" y="78" fill="#C084FC" font-size="13" font-weight="700" font-family="monospace">EXPERT</text>
+    
+    <text x="16" y="105" class="cp-sub">Max Rank: Expert</text>
+    <text x="16" y="125" class="mono-sm">IIIT Lucknow • Handle: FRshubham</text>
+  </g>
+
+  <!-- Metric 3: CodeChef 3-Star -->
+  <g transform="translate(470, 68)">
+    <rect x="0" y="0" width="200" height="142" rx="10" fill="url(#cardGrad)" stroke="#1E293B" stroke-width="1" />
+    <rect x="16" y="16" width="36" height="20" rx="4" fill="#1E293B" />
+    <text x="34" y="30" fill="#F97316" font-size="11" font-weight="700" font-family="monospace" text-anchor="middle">CC</text>
+    <text x="60" y="31" class="cp-title">CodeChef</text>
+    
+    <text x="16" y="78" class="cp-val" fill="#F97316">1680</text>
+    <text x="86" y="78" fill="#FDBA74" font-size="13" font-weight="700" font-family="monospace">3-STAR</text>
+    
+    <text x="16" y="105" class="cp-sub">Rank 140 • Starters 170D</text>
+    <text x="16" y="125" class="mono-sm">Division 2 Competitor</text>
+  </g>
+
+  <!-- Metric 4: Hackathons & Contests -->
+  <g transform="translate(690, 68)">
+    <rect x="0" y="0" width="200" height="142" rx="10" fill="url(#cardGrad)" stroke="#1E293B" stroke-width="1" />
+    <text x="16" y="31" class="cp-title">Contests &amp; Honors</text>
+    
+    <text x="16" y="60" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#38BDF8">Goldman Sachs '26</text>
+    <text x="16" y="76" class="mono-sm">Top 10% Nationwide (CS)</text>
+    
+    <text x="16" y="98" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" fill="#34D399">SpeedForces IIITL</text>
+    <text x="16" y="114" class="mono-sm">2nd Place Institute Marathon</text>
+    
+    <text x="16" y="132" class="mono-sm" fill="#A855F7">HackVega Finalist • Hackofiesta Winner</text>
+  </g>
+</svg>

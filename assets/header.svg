@@ -1,0 +1,138 @@
+<svg width="100%" height="300" viewBox="0 0 920 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07090E" />
+      <stop offset="50%" stop-color="#0A0E1A" />
+      <stop offset="100%" stop-color="#05070A" />
+    </linearGradient>
+
+    <!-- Border Glow Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#A855F7" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Accent Text Gradient -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="60%" stop-color="#E0F2FE" />
+      <stop offset="100%" stop-color="#BAE6FD" />
+    </linearGradient>
+
+    <!-- Cyan Glow Filter -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Violet Glow Filter -->
+    <filter id="glowViolet" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.9); }
+    }
+    @keyframes shimmer {
+      0% { stop-color: #38BDF8; }
+      50% { stop-color: #A855F7; }
+      100% { stop-color: #38BDF8; }
+    }
+    .pulse { animation: pulseDot 2s infinite ease-in-out; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 800; font-size: 40px; letter-spacing: 1.5px; fill: url(#textGrad); }
+    .mono { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+  </style>
+
+  <!-- Container Box with Rounded Corners -->
+  <rect x="2" y="2" width="916" height="296" rx="16" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="1.5" />
+
+  <!-- Ambient Glow Blobs -->
+  <circle cx="120" cy="80" r="80" fill="#38BDF8" fill-opacity="0.06" filter="url(#glowViolet)" />
+  <circle cx="800" cy="220" r="100" fill="#A855F7" fill-opacity="0.07" filter="url(#glowViolet)" />
+
+  <!-- Cyber Grid Pattern Details -->
+  <g opacity="0.08" stroke="#38BDF8" stroke-width="1">
+    <line x1="40" y1="50" x2="880" y2="50" />
+    <line x1="40" y1="250" x2="880" y2="250" />
+    <line x1="50" y1="30" x2="50" y2="270" />
+    <line x1="870" y1="30" x2="870" y2="270" />
+  </g>
+
+  <!-- Top System Bar -->
+  <g transform="translate(42, 34)">
+    <circle cx="6" cy="6" r="4.5" fill="#10B981" class="pulse" />
+    <text x="18" y="10" fill="#10B981" font-size="11" font-weight="600" class="mono" letter-spacing="1.2">SYSTEM: ONLINE</text>
+    <text x="140" y="10" fill="#64748B" font-size="11" class="mono">//</text>
+    <text x="160" y="10" fill="#94A3B8" font-size="11" font-weight="500" class="mono" letter-spacing="0.8">IIIT LUCKNOW • B.TECH CS &amp; BUSINESS (GPA: 9.0)</text>
+    
+    <!-- Right side tag -->
+    <rect x="700" y="-3" width="136" height="20" rx="10" fill="#1E293B" fill-opacity="0.6" stroke="#334155" stroke-width="0.8" />
+    <text x="768" y="11" fill="#38BDF8" font-size="10.5" font-weight="600" class="mono" text-anchor="middle">LEAD @ GDG IIITL</text>
+  </g>
+
+  <!-- Central Header: Name -->
+  <g transform="translate(42, 115)">
+    <text x="0" y="0" class="title">SHUBHAM MITTAL</text>
+    <text x="460" y="-2" fill="#38BDF8" font-size="28" font-weight="300" class="mono">&lt;/&gt;</text>
+  </g>
+
+  <!-- Subtitle / Mission Statement -->
+  <g transform="translate(42, 155)">
+    <text x="0" y="0" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="400">
+      Distributed Systems Architect &amp; Agentic AI Engineer • Solving Complex Algorithmic Problems
+    </text>
+  </g>
+
+  <!-- Badges / Pill Chips -->
+  <g transform="translate(42, 192)">
+    <!-- Chip 1: LeetCode Knight -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="175" height="32" rx="16" fill="#131B2E" stroke="#2563EB" stroke-width="1" />
+      <circle cx="16" cy="16" r="4.5" fill="#F59E0B" />
+      <text x="28" y="20" fill="#F1F5F9" font-size="12" font-weight="600" class="mono">LeetCode Knight</text>
+      <text x="142" y="20" fill="#38BDF8" font-size="11" font-weight="700" class="mono">1967</text>
+    </g>
+
+    <!-- Chip 2: Codeforces Expert -->
+    <g transform="translate(187, 0)">
+      <rect x="0" y="0" width="180" height="32" rx="16" fill="#1A132F" stroke="#7C3AED" stroke-width="1" />
+      <circle cx="16" cy="16" r="4.5" fill="#A855F7" />
+      <text x="28" y="20" fill="#F1F5F9" font-size="12" font-weight="600" class="mono">Codeforces Expert</text>
+      <text x="150" y="20" fill="#C084FC" font-size="11" font-weight="700" class="mono">1634</text>
+    </g>
+
+    <!-- Chip 3: CodeChef 3-Star -->
+    <g transform="translate(379, 0)">
+      <rect x="0" y="0" width="165" height="32" rx="16" fill="#1C1814" stroke="#D97706" stroke-width="1" />
+      <circle cx="16" cy="16" r="4.5" fill="#F59E0B" />
+      <text x="28" y="20" fill="#F1F5F9" font-size="12" font-weight="600" class="mono">CodeChef 3★</text>
+      <text x="127" y="20" fill="#FBBF24" font-size="11" font-weight="700" class="mono">1680</text>
+    </g>
+
+    <!-- Chip 4: 2000+ Problems -->
+    <g transform="translate(556, 0)">
+      <rect x="0" y="0" width="160" height="32" rx="16" fill="#061D1A" stroke="#059669" stroke-width="1" />
+      <circle cx="16" cy="16" r="4.5" fill="#10B981" />
+      <text x="28" y="20" fill="#F1F5F9" font-size="12" font-weight="600" class="mono">Problems Solved</text>
+      <text x="135" y="20" fill="#34D399" font-size="11" font-weight="700" class="mono">2K+</text>
+    </g>
+
+    <!-- Chip 5: Goldman Sachs -->
+    <g transform="translate(728, 0)">
+      <rect x="0" y="0" width="150" height="32" rx="16" fill="#1E293B" stroke="#475569" stroke-width="1" />
+      <text x="75" y="20" fill="#38BDF8" font-size="11" font-weight="700" class="mono" text-anchor="middle">GS Hackathon Top 10%</text>
+    </g>
+  </g>
+
+  <!-- Bottom Terminal Status Bar -->
+  <g transform="translate(42, 260)">
+    <text x="0" y="0" fill="#475569" font-size="11" class="mono">STACK :: [ C++ • Java • Python • TypeScript • Go • Spring Boot • FastAPI • Docker • MCP ]</text>
+    <text x="836" y="0" fill="#38BDF8" font-size="11" font-weight="600" class="mono" text-anchor="end">v2026.1</text>
+  </g>
+</svg>
