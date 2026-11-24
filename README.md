@@ -238,15 +238,49 @@ My technical work converges at the intersection of **high-throughput distributed
   <img src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/assets/divider.svg" width="100%" />
 </p>
 
-## 🐍 Contribution Activity & Snake Animation
+## 🕹️ Algorithmic Contribution Arcade & 3D Skyline Matrix
 
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/shubham-x06/shubham-x06/output/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/shubham-x06/shubham-x06/output/github-contribution-grid-snake.svg">
-    <img alt="GitHub Contribution Snake Animation" src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/output/github-contribution-grid-snake-dark.svg" width="100%" />
-  </picture>
+  <a href="https://shubham-x06.github.io/shubham-x06/" target="_blank">
+    <img src="https://img.shields.io/badge/🎮_PLAY_CYBER_SNAKE-LIVE_IN_BROWSER-38BDF8?style=for-the-badge&logo=gamepad&logoColor=06080F&labelColor=08090C" alt="Play Cyber Snake Live" />
+  </a>
+  <a href="https://shubham-x06.github.io/shubham-x06/" target="_blank">
+    <img src="https://img.shields.io/badge/HIGH_SCORE-2000+_COMMITS-A855F7?style=for-the-badge&logo=target&logoColor=white&labelColor=08090C" alt="High Score" />
+  </a>
 </div>
+
+<br/>
+
+<table>
+  <tr>
+    <td align="center">
+      <div align="center">
+        <code><b>[ ARCADE MODE // NEON CYBERPUNK SNAKE EATER ]</b></code><br/>
+        <sub><i>Electric Cyan Serpent consuming daily distributed systems commits &amp; algorithmic nodes</i></sub>
+      </div>
+      <br/>
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/shubham-x06/shubham-x06/output/github-contribution-grid-snake-dark.svg">
+        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/shubham-x06/shubham-x06/output/github-contribution-grid-snake.svg">
+        <img alt="GitHub Cyberpunk Snake Animation" src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/output/github-contribution-grid-snake-dark.svg" width="100%" />
+      </picture>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <div align="center">
+        <code><b>[ 3D ISOMETRIC SKYLINE // COMMIT LANDSCAPE ]</b></code><br/>
+        <sub><i>Isometric skyscraper heights proportional to daily engineering throughput &amp; commits</i></sub>
+      </div>
+      <br/>
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/profile-3d-contrib/profile-night-view.svg">
+        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/profile-3d-contrib/profile-green-animate.svg">
+        <img alt="GitHub 3D Contribution Skyline" src="https://raw.githubusercontent.com/shubham-x06/shubham-x06/main/profile-3d-contrib/profile-night-view.svg" width="100%" />
+      </picture>
+    </td>
+  </tr>
+</table>
 
 <br/>
 

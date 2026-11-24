@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYBER_SNAKE // Shubham Mittal Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+    body {
+      background: #06080F;
+      color: #F8FAFC;
+      font-family: 'Fira Code', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+    .crt-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 3px, 6px 100%;
+      pointer-events: none;
+      z-index: 100;
+    }
+    .arcade-container {
+      background: #0A0E1A;
+      border: 2px solid #1E293B;
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(56, 189, 248, 0.15), inset 0 0 20px rgba(0, 0, 0, 0.8);
+      padding: 24px;
+      max-width: 680px;
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .arcade-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #1E293B;
+    }
+    .arcade-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #38BDF8, #A855F7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+    .hud {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      justify-content: space-around;
+      background: #07090E;
+      border: 1px solid #1E293B;
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+    .hud-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hud-label {
+      color: #64748B;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+    .hud-val {
+      font-weight: 700;
+      color: #38BDF8;
+      font-size: 16px;
+      margin-top: 2px;
+    }
+    #gameCanvas {
+      background: #05070B;
+      border: 2px solid #1E293B;
+      border-radius: 8px;
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.9);
+      display: block;
+    }
+    .instructions {
+      margin-top: 14px;
+      font-size: 11px;
+      color: #64748B;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .keys {
+      color: #38BDF8;
+      font-weight: 600;
+    }
+    .footer-actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn {
+      background: #111827;
+      border: 1px solid #334155;
+      color: #E2E8F0;
+      font-family: 'Fira Code', monospace;
+      font-size: 12px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn:hover {
+      background: #1E293B;
+      border-color: #38BDF8;
+      color: #38BDF8;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+    }
+    .btn-primary {
+      background: #0284C7;
+      border-color: #38BDF8;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+    .btn-primary:hover {
+      background: #0369A1;
+      color: #FFFFFF;
+    }
+    /* Mobile Controls */
+    .mobile-controls {
+      display: none;
+      grid-template-columns: repeat(3, 56px);
+      grid-gap: 8px;
+      margin-top: 16px;
+    }
+    .d-btn {
+      width: 56px;
+      height: 56px;
+      background: #111827;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      color: #38BDF8;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .d-btn:active {
+      background: #38BDF8;
+      color: #000;
+    }
+    @media (max-width: 600px) {
+      .mobile-controls { display: grid; }
+      #gameCanvas { width: 100% !important; height: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="crt-overlay"></div>
+
+  <div class="arcade-container">
+    <div class="arcade-header">
+      <div class="arcade-title">CYBER_SNAKE v2.0</div>
+      <button id="soundBtn" class="btn">🔊 Sound: ON</button>
+    </div>
+
+    <div class="hud">
+      <div class="hud-item">
+        <span class="hud-label">COMMITS EATEN</span>
+        <span id="scoreVal" class="hud-val">0</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">LEVEL</span>
+        <span id="levelVal" class="hud-val">1</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">HIGH SCORE</span>
+        <span id="highScoreVal" class="hud-val">0</span>
+      </div>
+    </div>
+
+    <canvas id="gameCanvas" width="480" height="480"></canvas>
+
+    <!-- Mobile D-Pad -->
+    <div class="mobile-controls">
+      <div></div>
+      <div class="d-btn" id="dUp">▲</div>
+      <div></div>
+      <div class="d-btn" id="dLeft">◀</div>
+      <div class="d-btn" id="dDown">▼</div>
+      <div class="d-btn" id="dRight">▶</div>
+    </div>
+
+    <div class="instructions">
+      Use <span class="keys">Arrow Keys</span> or <span class="keys">W A S D</span> to steer.<br/>
+      Eat <span style="color:#38BDF8;">Cyan Commits</span> &amp; <span style="color:#A855F7;">Violet Releases</span>. Avoid walls &amp; self-collision!
+    </div>
+
+    <div class="footer-actions">
+      <button id="restartBtn" class="btn btn-primary">🔄 New Game</button>
+      <a href="https://github.com/shubham-x06" class="btn">← Shubham's GitHub</a>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const scoreVal = document.getElementById('scoreVal');
+    const levelVal = document.getElementById('levelVal');
+    const highScoreVal = document.getElementById('highScoreVal');
+    const soundBtn = document.getElementById('soundBtn');
+    const restartBtn = document.getElementById('restartBtn');
+
+    const GRID_SIZE = 24;
+    const CELL_SIZE = canvas.width / GRID_SIZE; // 20px
+
+    let snake = [];
+    let direction = { x: 1, y: 0 };
+    let nextDirection = { x: 1, y: 0 };
+    let food = { x: 15, y: 12, type: 'commit' };
+    let score = 0;
+    let level = 1;
+    let highScore = localStorage.getItem('shubham_snake_hi') || 0;
+    highScoreVal.textContent = highScore;
+    let gameOver = false;
+    let soundEnabled = true;
+    let gameLoopId = null;
+    let speedMs = 110;
+
+    // Web Audio Synthesizer
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function playBeep(freq, type, duration) {
+      if (!soundEnabled) return;
+      try {
+        if (!audioCtx) audioCtx = new AudioCtx();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type || 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function initGame() {
+      snake = [
+        { x: 10, y: 12 },
+        { x: 9, y: 12 },
+        { x: 8, y: 12 }
+      ];
+      direction = { x: 1, y: 0 };
+      nextDirection = { x: 1, y: 0 };
+      score = 0;
+      level = 1;
+      speedMs = 110;
+      scoreVal.textContent = score;
+      levelVal.textContent = level;
+      gameOver = false;
+      spawnFood();
+      if (gameLoopId) clearInterval(gameLoopId);
+      gameLoopId = setInterval(gameStep, speedMs);
+    }
+
+    function spawnFood() {
+      while (true) {
+        const rx = Math.floor(Math.random() * GRID_SIZE);
+        const ry = Math.floor(Math.random() * GRID_SIZE);
+        const collision = snake.some(s => s.x === rx && s.y === ry);
+        if (!collision) {
+          const isSpecial = Math.random() < 0.25;
+          food = { x: rx, y: ry, type: isSpecial ? 'release' : 'commit' };
+          break;
+        }
+      }
+    }
+
+    function gameStep() {
+      if (gameOver) return;
+
+      direction = { ...nextDirection };
+      const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+
+      // Wall Collision
+      if (head.x < 0 || head.x >= GRID_SIZE || head.y < 0 || head.y >= GRID_SIZE) {
+        endGame();
+        return;
+      }
+
+      // Self Collision
+      for (let segment of snake) {
+        if (segment.x === head.x && segment.y === head.y) {
+          endGame();
+          return;
+        }
+      }
+
+      snake.unshift(head);
+
+      // Check Food Collision
+      if (head.x === food.x && head.y === food.y) {
+        const pts = food.type === 'release' ? 3 : 1;
+        score += pts;
+        scoreVal.textContent = score;
+
+        if (score > highScore) {
+          highScore = score;
+          highScoreVal.textContent = highScore;
+          localStorage.setItem('shubham_snake_hi', highScore);
+        }
+
+        playBeep(food.type === 'release' ? 659 : 440, 'triangle', 0.15);
+
+        // Level Up
+        if (score % 8 === 0) {
+          level++;
+          levelVal.textContent = level;
+          speedMs = Math.max(60, speedMs - 8);
+          clearInterval(gameLoopId);
+          gameLoopId = setInterval(gameStep, speedMs);
+          playBeep(880, 'sine', 0.25);
+        }
+
+        spawnFood();
+      } else {
+        snake.pop();
+      }
+
+      draw();
+    }
+
+    function draw() {
+      // Clear Background
+      ctx.fillStyle = '#05070B';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw Grid Lines (Subtle)
+      ctx.strokeStyle = '#0E1626';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < canvas.width; x += CELL_SIZE) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      for (let y = 0; y < canvas.height; y += CELL_SIZE) {
+        ctx.beginPath();
+        ctx.moveTo(0, y); ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+
+      // Draw Food (Glowing Commit Node)
+      const fx = food.x * CELL_SIZE;
+      const fy = food.y * CELL_SIZE;
+      ctx.shadowBlur = 12;
+      ctx.shadowColor = food.type === 'release' ? '#A855F7' : '#38BDF8';
+      ctx.fillStyle = food.type === 'release' ? '#C084FC' : '#38BDF8';
+      ctx.beginPath();
+      ctx.roundRect(fx + 2, fy + 2, CELL_SIZE - 4, CELL_SIZE - 4, 6);
+      ctx.fill();
+
+      // Inner Pulse
+      ctx.fillStyle = '#FFFFFF';
+      ctx.beginPath();
+      ctx.arc(fx + CELL_SIZE / 2, fy + CELL_SIZE / 2, 3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      // Draw Snake
+      snake.forEach((seg, index) => {
+        const sx = seg.x * CELL_SIZE;
+        const sy = seg.y * CELL_SIZE;
+
+        if (index === 0) {
+          // Head with Glow
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = '#38BDF8';
+          ctx.fillStyle = '#E0F2FE';
+          ctx.beginPath();
+          ctx.roundRect(sx + 1, sy + 1, CELL_SIZE - 2, CELL_SIZE - 2, 6);
+          ctx.fill();
+          ctx.shadowBlur = 0;
+
+          // Head Eyes
+          ctx.fillStyle = '#0369A1';
+          const eyeOffset = 5;
+          ctx.fillRect(sx + eyeOffset, sy + eyeOffset, 3, 3);
+          ctx.fillRect(sx + CELL_SIZE - eyeOffset - 3, sy + eyeOffset, 3, 3);
+        } else {
+          // Body with Gradient Transition
+          const ratio = index / snake.length;
+          const r = Math.floor(56 + (168 - 56) * ratio);
+          const g = Math.floor(189 + (85 - 189) * ratio);
+          const b = Math.floor(248 + (247 - 248) * ratio);
+          ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
+          ctx.beginPath();
+          ctx.roundRect(sx + 2, sy + 2, CELL_SIZE - 4, CELL_SIZE - 4, 4);
+          ctx.fill();
+        }
+      });
+
+      // Game Over Screen
+      if (gameOver) {
+        ctx.fillStyle = 'rgba(5, 7, 11, 0.85)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = 'bold 26px Orbitron, sans-serif';
+        ctx.fillStyle = '#EF4444';
+        ctx.textAlign = 'center';
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = '#EF4444';
+        ctx.fillText('CRITICAL EXCEPTION', canvas.width / 2, canvas.height / 2 - 20);
+
+        ctx.font = '14px Fira Code, monospace';
+        ctx.fillStyle = '#94A3B8';
+        ctx.shadowBlur = 0;
+        ctx.fillText(`Commits Collected: ${score}`, canvas.width / 2, canvas.height / 2 + 15);
+        ctx.fillText('Press [SPACE] or Restart Button', canvas.width / 2, canvas.height / 2 + 45);
+      }
+    }
+
+    function endGame() {
+      gameOver = true;
+      clearInterval(gameLoopId);
+      playBeep(160, 'sawtooth', 0.4);
+      draw();
+    }
+
+    // Controls
+    window.addEventListener('keydown', (e) => {
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+
+      if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
+        if (direction.y === 0) nextDirection = { x: 0, y: -1 };
+      } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
+        if (direction.y === 0) nextDirection = { x: 0, y: 1 };
+      } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+        if (direction.x === 0) nextDirection = { x: -1, y: 0 };
+      } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+        if (direction.x === 0) nextDirection = { x: 1, y: 0 };
+      } else if (e.key === ' ' && gameOver) {
+        initGame();
+      }
+    });
+
+    // Touch D-Pad
+    document.getElementById('dUp').addEventListener('click', () => { if (direction.y === 0) nextDirection = { x: 0, y: -1 }; });
+    document.getElementById('dDown').addEventListener('click', () => { if (direction.y === 0) nextDirection = { x: 0, y: 1 }; });
+    document.getElementById('dLeft').addEventListener('click', () => { if (direction.x === 0) nextDirection = { x: -1, y: 0 }; });
+    document.getElementById('dRight').addEventListener('click', () => { if (direction.x === 0) nextDirection = { x: 1, y: 0 }; });
+
+    soundBtn.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      soundBtn.textContent = soundEnabled ? '🔊 Sound: ON' : '🔇 Sound: OFF';
+    });
+
+    restartBtn.addEventListener('click', () => {
+      initGame();
+    });
+
+    // Start on load
+    initGame();
+  </script>
+</body>
+</html>
